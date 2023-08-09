@@ -1,5 +1,6 @@
 ﻿
 var cts1 = new CancellationTokenSource();
+cts1.CancelAfter(TimeSpan.FromSeconds(3));
 var token1 = cts1.Token;
 
 var t1 = new Task(() => 
@@ -11,10 +12,14 @@ var t1 = new Task(() =>
         Thread.Sleep(1000);
     }
     Console.WriteLine("T1: Is done");
-},token1);
+});
 t1.Start();
 
-Task t2 = Task.Factory.StartNew(() => { Console.WriteLine("T2: Start"); Thread.Sleep(2000); Console.WriteLine("T2: End"); }, token1);
+Task t2 = Task.Factory.StartNew(() => { 
+    Console.WriteLine("T2: Start"); 
+    Thread.Sleep(2000); 
+    Console.WriteLine("T2: End"); 
+}, token1);
 
 //Method 1
 //Task.WaitAll(t1, t2);
@@ -30,7 +35,18 @@ Task t2 = Task.Factory.StartNew(() => { Console.WriteLine("T2: Start"); Thread.S
 //Task.WaitAny(tasks: new[] { t1, t2 } , millisecondsTimeout: 4000, cancellationToken: token1   );
 
 //method 5
-Task.WaitAll(tasks: new[] { t1, t2 }, millisecondsTimeout: 3000, cancellationToken: token1);
+//Task.WaitAll(tasks: new[] { t1, t2 }, millisecondsTimeout: 3000, cancellationToken: token1);
+
+// start w/o token
+try
+{
+    // throws on a canceled token
+    Task.WaitAll(new[] { t1, t2 }, 4000, token1);
+}
+catch (Exception e)
+{
+    Console.WriteLine("##### TASK EXCEPTION ######: " + e);
+}
 
 Console.WriteLine($"T1 status: {t1.Status}");
 Console.WriteLine($"T2 status: {t2.Status}");
