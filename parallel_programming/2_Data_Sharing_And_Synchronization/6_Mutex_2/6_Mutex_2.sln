@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34003.232
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "6_Mutex_2", "6_Mutex_2\6_Mutex_2.csproj", "{C6D34153-6C0C-44F4-B2E0-ED7975BEE420}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6D34153-6C0C-44F4-B2E0-ED7975BEE420}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6D34153-6C0C-44F4-B2E0-ED7975BEE420}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6D34153-6C0C-44F4-B2E0-ED7975BEE420}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6D34153-6C0C-44F4-B2E0-ED7975BEE420}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3FF7263-12B0-4183-B66C-DD6A3F1EF572}
+	EndGlobalSection
+EndGlobal
